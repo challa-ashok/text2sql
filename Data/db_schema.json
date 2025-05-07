@@ -1,0 +1,84 @@
+[
+    {
+      "table_name": "name.basics",
+      "description": "Biographical and professional details of people involved in film and television. Includes actors, directors, writers, producers, etc.",
+      "columns": [
+        { "name": "nconst", "type": "string", "description": "Unique identifier for each individual in the database" },
+        { "name": "primaryName", "type": "string", "description": "Person’s full name as known in the industry" },
+        { "name": "birthYear", "type": "string", "description": "Year of birth in YYYY format, '\\N' if not known" },
+        { "name": "deathYear", "type": "string", "description": "Year of death in YYYY format, '\\N' if still alive or unknown" },
+        { "name": "primaryProfession", "type": "string", "description": "Comma-separated list of key professions (e.g., actor, director)" },
+        { "name": "knownForTitles", "type": "string", "description": "Comma-separated list of IMDb title IDs most associated with the person" }
+      ]
+    },
+    {
+      "table_name": "title.akas",
+      "description": "Alternate titles used for films and TV shows in different countries, regions, and languages. Useful for internationalization and localization.",
+      "columns": [
+        { "name": "titleId", "type": "string", "description": "IMDb ID of the title this record refers to" },
+        { "name": "ordering", "type": "integer", "description": "Ordering number for titles that share the same titleId" },
+        { "name": "title", "type": "string", "description": "The alternate or localized title" },
+        { "name": "region", "type": "string", "description": "Region where this title is used (e.g., US, DE)" },
+        { "name": "language", "type": "string", "description": "Language of the title, using ISO codes" },
+        { "name": "types", "type": "string", "description": "Comma-separated list indicating title type (e.g., 'original', 'alternative')" },
+        { "name": "attributes", "type": "string", "description": "Additional information about the title (e.g., IMAX, DVD)" },
+        { "name": "isOriginalTitle", "type": "boolean", "description": "1 if this was the original release title, 0 otherwise" }
+      ]
+    },
+    {
+      "table_name": "title.basics",
+      "description": "Master list of titles including movies, short films, TV episodes, and series. Contains general info like genre, release year, and runtime.",
+      "columns": [
+        { "name": "tconst", "type": "string", "description": "Unique IMDb identifier for the title" },
+        { "name": "titleType", "type": "string", "description": "Type of the title (e.g., movie, short, tvSeries, tvEpisode)" },
+        { "name": "primaryTitle", "type": "string", "description": "Title most commonly used by the public" },
+        { "name": "originalTitle", "type": "string", "description": "Original language version of the title" },
+        { "name": "isAdult", "type": "boolean", "description": "1 if the title is adult content, 0 otherwise" },
+        { "name": "startYear", "type": "string", "description": "Year of first release" },
+        { "name": "endYear", "type": "string", "description": "Year the series/season ended, if applicable" },
+        { "name": "runtimeMinutes", "type": "string", "description": "Length of the title in minutes, '\\N' if unknown" },
+        { "name": "genres", "type": "string", "description": "Comma-separated list of genres (e.g., Drama, Comedy)" }
+      ]
+    },
+    {
+      "table_name": "title.crew",
+      "description": "Information about the creative leads for titles, specifically the directors and writers responsible for each film or show.",
+      "columns": [
+        { "name": "tconst", "type": "string", "description": "IMDb ID of the title" },
+        { "name": "directors", "type": "string", "description": "Comma-separated IMDb IDs (nconst) for directors of the title" },
+        { "name": "writers", "type": "string", "description": "Comma-separated IMDb IDs (nconst) for writers of the title" }
+      ]
+    },
+    {
+      "table_name": "title.episode",
+      "description": "Details about episodes of television series including their relationship to parent series and episode order.",
+      "columns": [
+        { "name": "tconst", "type": "string", "description": "IMDb ID for the episode" },
+        { "name": "parentTconst", "type": "string", "description": "IMDb ID for the parent series" },
+        { "name": "seasonNumber", "type": "string", "description": "Season in which the episode aired" },
+        { "name": "episodeNumber", "type": "string", "description": "Episode’s position within the season" }
+      ]
+    },
+    {
+      "table_name": "title.principals",
+      "description": "Lists top-billed cast and crew members, usually shown prominently on a title's page. Indicates each person's role and characters played.",
+      "columns": [
+        { "name": "tconst", "type": "string", "description": "IMDb ID of the title" },
+        { "name": "ordering", "type": "integer", "description": "Order in which the person appears in credits" },
+        { "name": "nconst", "type": "string", "description": "Person’s unique IMDb ID" },
+        { "name": "category", "type": "string", "description": "Role category (e.g., actor, director, producer)" },
+        { "name": "job", "type": "string", "description": "Specific job title or function (e.g., 'cinematographer')" },
+        { "name": "characters", "type": "string", "description": "Names of characters played (if applicable)" }
+      ]
+    },
+    {
+      "table_name": "title.ratings",
+      "description": "Aggregate IMDb user ratings and vote counts for titles. Used to rank popularity and viewer sentiment.",
+      "columns": [
+        { "name": "tconst", "type": "string", "description": "IMDb ID of the title" },
+        { "name": "averageRating", "type": "float", "description": "Average user rating on a scale of 1–10" },
+        { "name": "numVotes", "type": "integer", "description": "Number of votes the title has received" }
+      ]
+    }
+  ]
+  
