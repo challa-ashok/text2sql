@@ -21,3 +21,4 @@ ask your question after that, and it will return you the SQL query!
 
 references: 
 https://python.langchain.com/docs/how_to/document_loader_json/
+https://zindilis.com/posts/imdb-non-commercial-datasets-schema/?utm_source=chatgpt.com
