@@ -30,7 +30,7 @@ class Text2SQLService:
         os.environ["OPENAI_API_KEY"] = api_key
         self.embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
         self.vector_store = InMemoryVectorStore(self.embeddings)
-        self.llm = init_chat_model("gpt-4.1-nano", model_provider="openai")
+        self.llm = init_chat_model("gpt-5-nano", model_provider="openai")
         
     def metadata_func(self, record: dict, metadata: dict) -> dict:
         """Extract metadata from schema records"""

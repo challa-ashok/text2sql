@@ -81,7 +81,7 @@ def main():
         }
     )
 
-    llm = init_chat_model("gpt-4.1-nano",model_provider="openai")
+    llm = init_chat_model("gpt-5-nano",model_provider="openai")
     result = llm.invoke(prompt)
 
     print(f"{result}")
